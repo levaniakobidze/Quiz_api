@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Question.css";
 
 function Question({ questions, index, setIndex, loading }) {
-  console.log(questions);
+  const [allAnswers, setAllAnswers] = useState([]);
+
+  const fetched = questions && questions.length;
+
+  const createAnswers = () => {
+    const incorrect =
+      fetched && questions[index].incorrect_answers.map((answer) => answer);
+    const correct = fetched && questions[index].correct_answer;
+
+    return incorrect;
+  };
+
   return (
-    <div>
-      <h1>{questions[index].question}</h1>
-      <li>{questions[index].correct_answer}</li>
-      <li>{questions[index].incorrect_answers[0]}</li>
-      <li>{questions[index].incorrect_answers[1]}</li>
-      <li>{questions[index].incorrect_answers[2]}</li>
-    </div>
+    <>
+      {fetched && (
+        <div>
+          <h1>{questions[index].question}</h1>
+
+          <ul>
+            {allAnswers.map((answer, index) => {
+              return <li key={index}>{answer}</li>;
+            })}
+          </ul>
+        </div>
+      )}
+    </>
   );
 }
 

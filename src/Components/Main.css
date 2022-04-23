@@ -6,13 +6,64 @@
   background-position: center;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 .main-white-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffff;
   width: 464px;
   height: 515px;
   border-radius: 24px;
+}
+
+.loading {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.span1 {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: opacity forwards infinite;
+  animation-duration: 1000ms;
+}
+
+.span2 {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 5px;
+
+  animation: opacity forwards infinite;
+  animation-duration: 900ms;
+}
+
+.span3 {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: opacity forwards infinite;
+  animation-duration: 700ms;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
