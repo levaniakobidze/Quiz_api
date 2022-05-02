@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Main.css";
 import Question from "./Question";
 import StartQuiz from "./StartQuiz/StartQuiz";
+import Form from "./Form/Form";
 
 const url =
   "https://opentdb.com/api.php?amount=50&category=22&difficulty=medium";
@@ -10,7 +11,9 @@ function Main() {
   const [questions, setQuestions] = useState([]);
   const [index, setIndex] = useState(2);
   const [loading, setLoading] = useState(false);
-  const [start, setStart] = useState(false);
+  const [startQuiz, setStartQuiz] = useState(true);
+  const [renderForm, setRenderForm] = useState(false);
+  const [renderQuestions, setRenderQuestions] = useState(false);
 
   const fetchQuestions = async () => {
     setLoading(true);
@@ -41,8 +44,13 @@ function Main() {
   return (
     <div className='main'>
       <div className='main-white-wrapper'>
-        {!start && <StartQuiz start={start} setStart={setStart} />}
-        {start && (
+        {startQuiz && (
+          <StartQuiz start={setStartQuiz} setForm={setRenderForm} />
+        )}
+        {renderForm && (
+          <Form setForm={setRenderForm} setStart={setRenderQuestions} />
+        )}
+        {renderQuestions && (
           <Question
             questions={questions}
             index={index}
