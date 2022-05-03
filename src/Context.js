@@ -7,9 +7,12 @@ export const ContextProvider = (props) => {
   const [startQuiz, setStartQuiz] = useState(true);
   const [renderForm, setRenderForm] = useState(false);
   const [renderQuestions, setRenderQuestions] = useState(false);
-  const [questions, setQuestions] = useState([]);
-  const [index, setIndex] = useState(2);
+  const [questions, setQuestions] = useState();
+  const [index, setIndex] = useState(0);
   const [quiz, setQuiz] = useState({ difficulty: "easy", amount: 10 });
+  const [correct, setCorrect] = useState(0);
+  const [incorrect, setIncorrect] = useState(0);
+  const [randomNum, setRandomNum] = useState();
 
   const fetchQuestions = async (url) => {
     setLoading(true);
@@ -29,6 +32,13 @@ export const ContextProvider = (props) => {
     setRenderQuestions(true);
     const api = `${API_URL}amount=${quiz.amount}&category=22&difficulty=${quiz.difficulty}&type=multiple`;
     fetchQuestions(api);
+    setRandomNum(Math.floor(Math.random() * 4));
+  };
+  console.log(randomNum);
+
+  const nextQuestion = () => {
+    setIndex(() => index + 1);
+    setRandomNum(Math.floor(Math.random() * 4));
   };
 
   const handleAmountChange = (e) => {
@@ -58,6 +68,12 @@ export const ContextProvider = (props) => {
         setQuiz,
         handleAmountChange,
         handleDifficultyChange,
+        nextQuestion,
+        correct,
+        setCorrect,
+        incorrect,
+        setIncorrect,
+        randomNum,
       }}>
       {props.children}
     </AppContext.Provider>

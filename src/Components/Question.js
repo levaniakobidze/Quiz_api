@@ -1,31 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../Context";
 import "./Question.css";
 
-function Question({ questions, index, setIndex, loading }) {
-  const [allAnswers, setAllAnswers] = useState([]);
+function Question() {
+  const {
+    index,
+    questions,
+    nextQuestion,
+    correct,
+    setCorrect,
+    incorrect,
+    setIncorrect,
+    quiz,
+    randomNum,
+  } = useContext(AppContext);
 
-  const fetched = questions && questions.length;
+  const { incorrect_answers, correct_answer } = questions[index];
+  if (incorrect == 3) {
+    return (
+      <>
+        <h1>game over</h1>
+        <p>corect answers:{correct}</p>
+      </>
+    );
+  }
+  if (correct == quiz.amount) {
+    return <h1>asdasdd</h1>;
+  }
 
-  const createAnswers = () => {
-    const incorrect =
-      fetched && questions[index].incorrect_answers.map((answer) => answer);
-    const correct = fetched && questions[index].correct_answer;
+  let answers = [...incorrect_answers];
+  answers.splice(randomNum, 0, correct_answer);
 
-    return incorrect;
+  const checkAnswer = (answer) => {
+    if (answer === correct_answer) {
+      setCorrect(() => correct + 1);
+    } else {
+      setIncorrect(() => incorrect + 1);
+    }
   };
 
+  const fetched = questions && questions.length;
   return (
     <>
       {fetched && (
-        <div>
+        <form onSubmit={(e) => e.preventDefault()}>
           <h1>{questions[index].question}</h1>
-
-          <ul>
-            {allAnswers.map((answer, index) => {
-              return <li key={index}>{answer}</li>;
-            })}
-          </ul>
-        </div>
+          {answers.map((answer, index) => {
+            return (
+              <p key={index} onClick={() => checkAnswer(answer)}>
+                {answer}
+              </p>
+            );
+          })}
+          <button onClick={nextQuestion}>next</button>
+        </form>
       )}
     </>
   );

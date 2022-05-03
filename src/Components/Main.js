@@ -40,14 +40,7 @@ function Main() {
         {renderForm && (
           <Form setForm={setRenderForm} setStart={setRenderQuestions} />
         )}
-        {renderQuestions && (
-          <Question
-            questions={questions}
-            index={index}
-            setIndex={setIndex}
-            loading={loading}
-          />
-        )}
+        {renderQuestions && <Question />}
       </div>
     </div>
   );
