@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./Main.css";
 import { AppContext } from "../Context";
-import { ContextProvider } from "../Context";
 import Question from "./Question";
 import StartQuiz from "./StartQuiz/StartQuiz";
 import Form from "./Form/Form";
 
 function Main() {
-  const [
+  const {
     loading,
     setLoading,
     startQuiz,
@@ -20,7 +19,7 @@ function Main() {
     setQuestions,
     index,
     setIndex,
-  ] = useContext(ContextProvider);
+  } = useContext(AppContext);
 
   if (loading) {
     return (
