@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../../Context";
+import { ContextProvider } from "../../Context";
 
-function Form({ setStart, setForm }) {
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setStart(true);
-    setForm(false);
-  };
-
+function Form() {
   return (
-    <form onSubmit={submitHandler}>
+    <form>
       <label htmlFor='number of questions'>Choose number of questions</label>
       <input type='text' />
       <label htmlFor='difficulty'> Choose difficulty </label>

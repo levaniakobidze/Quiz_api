@@ -1,11 +1,14 @@
 import "./App.css";
 import Main from "./Components/Main";
+import { ContextProvider } from "./Context";
 
 function App() {
   return (
-    <div className='main'>
-      <Main />
-    </div>
+    <ContextProvider>
+      <div className='main'>
+        <Main />
+      </div>
+    </ContextProvider>
   );
 }
 
