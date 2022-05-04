@@ -1,0 +1,53 @@
+.form1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 100px 10px;
+}
+label {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  padding: 15px 0;
+  color: rgba(73, 80, 216, 0.8);
+}
+input {
+  border: 1px solid rgba(96, 102, 208, 0.8);
+  border-radius: 10px;
+  outline: 0;
+  height: 50px;
+  padding: 0 10px;
+}
+select {
+  outline: 0;
+  border: 1px solid rgba(96, 102, 208, 0.8);
+
+  background-color: #fff;
+  height: 50px;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+option {
+  background-color: rgba(96, 102, 208, 0.8);
+  color: #fff;
+}
+.form-btn-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.form-start-btn {
+  background-color: rgba(96, 102, 208, 0.8);
+  border: 0;
+  outline: 0;
+  width: 100px;
+  height: 50px;
+  border-radius: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 0 0 10px 2px rgba(96, 102, 208, 0.8);
+  cursor: pointer;
+  margin-top: 60px;
+}

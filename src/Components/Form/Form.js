@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../../Context";
+import "./Form.css";
 
 function Form() {
   const {
@@ -10,8 +11,8 @@ function Form() {
     handleDifficultyChange,
   } = useContext(AppContext);
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor='number of questions'>Choose number of questions</label>
+    <form onSubmit={handleSubmit} className='form1'>
+      <label htmlFor='number of questions'>Choose number of questions :</label>
       <input
         type='number'
         min='5'
@@ -19,7 +20,7 @@ function Form() {
         value={quiz.amount}
         onChange={handleAmountChange}
       />
-      <label htmlFor='difficulty'> Choose difficulty </label>
+      <label htmlFor='difficulty'> Choose difficulty : </label>
       <select
         name='difficulty'
         id='difficulty'
@@ -29,7 +30,9 @@ function Form() {
         <option value='medium'>Medium</option>
         <option value='hard'>Hard</option>
       </select>
-      <button>Start</button>
+      <div className='form-btn-cont'>
+        <button className='form-start-btn'>Start</button>
+      </div>
     </form>
   );
 }

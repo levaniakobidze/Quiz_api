@@ -64,7 +64,7 @@ function Question() {
     setColor(false);
     return (
       <div className='game-over'>
-        <h1>game over</h1>
+        <h1>You lost</h1>
         <p>corect answers:{correct}</p>
       </div>
     );
