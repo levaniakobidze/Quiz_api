@@ -13,6 +13,8 @@ export const ContextProvider = (props) => {
   const [correct, setCorrect] = useState(0);
   const [incorrect, setIncorrect] = useState(0);
   const [randomNum, setRandomNum] = useState();
+  const [color, setColor] = useState("");
+  const [hover, setHover] = useState("hover");
 
   const fetchQuestions = async (url) => {
     setLoading(true);
@@ -37,8 +39,10 @@ export const ContextProvider = (props) => {
   console.log(randomNum);
 
   const nextQuestion = () => {
+    setHover("hover");
     setIndex(() => index + 1);
     setRandomNum(Math.floor(Math.random() * 4));
+    setColor("");
   };
 
   const handleAmountChange = (e) => {
@@ -74,6 +78,10 @@ export const ContextProvider = (props) => {
         incorrect,
         setIncorrect,
         randomNum,
+        color,
+        setColor,
+        hover,
+        setHover,
       }}>
       {props.children}
     </AppContext.Provider>

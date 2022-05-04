@@ -15,10 +15,9 @@ function Main() {
     setRenderForm,
     renderQuestions,
     setRenderQuestions,
-    questions,
-    setQuestions,
-    index,
-    setIndex,
+    correct,
+    incorrect,
+    quiz,
   } = useContext(AppContext);
 
   if (loading) {

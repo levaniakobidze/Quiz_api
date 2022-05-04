@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.question-cont {
+  width: 60vw;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+}
+
+.question-title {
+  height: 170px;
+  padding-top: 50px;
+  box-sizing: border-box;
+  color: #1d355d;
+}
+.question {
+  width: 100%;
+  height: 150px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: left;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px 2px rgba(96, 102, 208, 0.8);
+
+  border-radius: 12px;
+  cursor: pointer;
+  align-items: center;
+
+  padding: 10px 10px;
+
+  /* identical to box height */
+
+  color: rgba(96, 102, 208, 0.8);
+  transition: all 0.3s;
+}
+.hover:hover {
+  background: #f9a826;
+}
+
+.next-button-cont {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.incorrect-dash {
+  width: 100px;
+  height: 50px;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: orangered;
+  box-shadow: 0 0 5px 1px orangered;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.correct-dash {
+  width: 100px;
+  height: 50px;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: #60bf88;
+  box-shadow: 0 0 5px 1px #60bf88;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.next-button {
+  width: 100px;
+  height: 50px;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: orangered;
+  box-shadow: 0 0 5px 1px orangered;
+
+  cursor: pointer;
+}
+.correct {
+  background-color: #60bf88;
+  color: #fff !important;
+  border: 2px solid #60bf88 !important;
+  box-shadow: 0 0 10px 2px #60bf88;
+  outline: 0 !important;
+}
+.incorrect {
+  background-color: #ea8282;
+  color: #fff !important;
+  border: 2px solid #ea8282 !important;
+  box-shadow: 0 0 10px 2px #ea8282;
+  outline: 0 !important;
+}
