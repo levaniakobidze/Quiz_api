@@ -36,11 +36,12 @@ export const ContextProvider = (props) => {
     fetchQuestions(api);
     setRandomNum(Math.floor(Math.random() * 4));
   };
-  console.log(randomNum);
 
   const nextQuestion = () => {
     setHover("hover");
-    setIndex(() => index + 1);
+    if (index != questions.length - 1) {
+      setIndex(() => index + 1);
+    }
     setRandomNum(Math.floor(Math.random() * 4));
     setColor("");
   };
