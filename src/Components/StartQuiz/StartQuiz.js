@@ -10,7 +10,6 @@ function StartQuiz({ setForm, start }) {
   return (
     <div className='start'>
       <img className='globe-img' src={require("../images/globe.png")} alt='' />
-      <h1 className='start-title'>Are you ready to start quiz?</h1>
 
       <button className='start-btn' onClick={startHandler}>
         start
